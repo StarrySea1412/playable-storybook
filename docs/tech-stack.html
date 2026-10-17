@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>技术栈全景图 · playable-storybook</title>
+<style>
+  :root{
+    --bg:#080f1c;--card:#0f1a2e;--card2:#101c30;--ink:#eee8da;--muted:#a0a8b9;
+    --blue:#8fb3e8;--gold:#dfbc79;--mint:#8fd4b8;--coral:#e8b09a;--line:#24334d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:960px;background:
+    radial-gradient(60rem 28rem at 80% -8%,#16264a88,transparent 60%),
+    radial-gradient(40rem 22rem at 0% 100%,#2a241866,transparent 55%),
+    var(--bg);
+    color:var(--ink);padding:52px 56px 44px;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif}
+  .eyebrow{font-family:Consolas,monospace;font-size:12px;letter-spacing:.24em;color:var(--gold);margin-bottom:16px}
+  h1{font-size:42px;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:12px}
+  h1 em{font-style:normal;color:var(--blue)}
+  .sub{font-size:15px;color:var(--muted);letter-spacing:.06em}
+  .sub b{color:var(--ink);font-weight:600}
+  /* 顶部流向 */
+  .flow{display:flex;align-items:stretch;gap:0;margin:30px 0 34px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+  .flow .fcard{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 6px}
+  .flow .fcard b{font-size:14.5px;letter-spacing:.02em}
+  .flow .fcard span{font-size:11px;color:var(--muted);line-height:1.6}
+  .flow .arrow{display:flex;align-items:center;color:#3d5578;font-size:18px;padding:0 10px}
+  /* 2×3 分区卡 */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px 18px;position:relative;overflow:hidden}
+  .card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--c)}
+  .chead{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .num{font-family:Consolas,monospace;font-size:13px;font-weight:700;color:var(--bg);background:var(--c);border-radius:6px;padding:3px 8px}
+  .ic{width:30px;height:30px;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:8px;background:#0b1425}
+  .ic svg{width:20px;height:20px}
+  .card h3{font-size:16.5px;letter-spacing:.02em}
+  .card h3 small{display:block;font-family:Consolas,monospace;font-size:9.5px;letter-spacing:.16em;color:var(--muted);font-weight:400;margin-top:3px}
+  .card p{font-size:12.5px;line-height:1.85;color:var(--muted)}
+  .card p b{color:var(--ink);font-weight:600}
+  .card p code{font-family:Consolas,monospace;font-size:11px;color:var(--gold);background:#dfbc7914;padding:1px 5px;border-radius:4px}
+  /* 底部横条 */
+  .bar{margin-top:20px;background:linear-gradient(90deg,#dfbc7918,#8fb3e818);border:1px solid var(--line);border-radius:10px;padding:18px 24px;display:flex;align-items:center;gap:14px}
+  .bar b{color:var(--gold);font-size:15px;letter-spacing:.03em;white-space:nowrap}
+  .bar span{font-size:12.5px;color:var(--muted);line-height:1.8}
+  .foot{margin-top:22px;display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--line);padding-top:16px;font-size:11.5px;color:var(--muted)}
+  .foot code{font-family:Consolas,monospace;font-size:10.5px;color:var(--blue)}
+</style>
+</head>
+<body>
+  <p class="eyebrow">STARRYSEA · 造物手记 VOL.03 · TECH STACK</p>
+  <h1>把一本名著做成<em>可玩的网页</em></h1>
+  <p class="sub">一个小王子互动站的<b>完整制作手记</b> —— 零依赖单页文章站 · 自带三枚可玩小样 · 手机可玩</p>
+
+  <div class="flow">
+    <div class="fcard"><b>单页 index.html</b><span>HTML/CSS/JS 全内联<br/>零依赖 · 零构建</span></div>
+    <div class="arrow">➜</div>
+    <div class="fcard"><b>自托管文楷子集</b><span>919 字形 · 两个字重<br/>各约 197KB（woff2）</span></div>
+    <div class="arrow">➜</div>
+    <div class="fcard"><b>七张水彩插图</b><span>AI 辅助生成 + 真实素材<br/>webp 合计约 1.0MB</span></div>
+    <div class="arrow">➜</div>
+    <div class="fcard"><b>三枚可玩小样</b><span>印章切换 / 笔迹切换<br/>活体星空 canvas</span></div>
+    <div class="arrow">➜</div>
+    <div class="fcard"><b>GitHub Pages</b><span>main(root) 直发<br/>.nojekyll · 零 CI</span></div>
+  </div>
+
+  <div class="grid">
+    <div class="card" style="--c:var(--blue)">
+      <div class="chead"><span class="num">01</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="18" height="15" rx="2" stroke="#8fb3e8" stroke-width="1.7"/><path d="M3 8.5h18" stroke="#8fb3e8" stroke-width="1.5"/><circle cx="5.6" cy="6.6" r=".8" fill="#8fb3e8"/><circle cx="8" cy="6.6" r=".8" fill="#8fb3e8"/><path d="M12 15.5l.9-2 2-.9-2-.9-.9-2-.9 2-2 .9 2 .9z" fill="#dfbc79"/></svg></span>
+        <h3>呈现层<small>RENDER</small></h3></div>
+      <p>单个 <code>index.html</code> 承载全部版式与脚本：夜间主题、五章正文、手绘 SVG 图标、进度条与灯箱。零依赖、零构建，<b>打开即读</b>。</p>
+    </div>
+    <div class="card" style="--c:var(--gold)">
+      <div class="chead"><span class="num">02</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.8l3.6 6.6L12 21l-3.6-11.6z" stroke="#dfbc79" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="1.5" stroke="#dfbc79" stroke-width="1.4"/><path d="M7 21.4c3.2 1.3 6.8 1 9.5-.9" stroke="#8fb3e8" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        <h3>字体<small>TYPEFACE</small></h3></div>
+      <p>霞鹜文楷（OFL）按页面用字子集化：<b>919 个字形</b>压到两个字重各约 197KB；<code>font-weight: 300 599 / 600 900</code> 区间映射免做变量字体。</p>
+    </div>
+    <div class="card" style="--c:var(--mint)">
+      <div class="chead"><span class="num">03</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.2c4.9 0 8.8 3.3 8.8 7.4 0 4-3.4 6.2-6.6 6.2h-1.7c-1 0-1.8.7-1.8 1.6 0 1.2 1.1 1.6 1.1 2.4 0 .9-.9 1.6-2.2 1.6-4.1 0-6.4-3.6-6.4-8.2C3.2 8.6 7 3.2 12 3.2z" stroke="#8fd4b8" stroke-width="1.7"/><circle cx="8" cy="10" r="1.2" fill="#dfbc79"/><circle cx="12" cy="7.6" r="1.2" fill="#8fb3e8"/><circle cx="16" cy="10" r="1.2" fill="#dfbc79"/></svg></span>
+        <h3>插画<small>ARTWORK</small></h3></div>
+      <p>七张水彩插图（AI 辅助生成，webp 合计约 1.0MB）+ 作品真实素材三枚：印章缩略图 11KB、封面 118KB，<b>轻和统一可以同时要</b>。</p>
+    </div>
+    <div class="card" style="--c:var(--coral)">
+      <div class="chead"><span class="num">04</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4l7 16 2.2-6.6L21 11z" stroke="#e8b09a" stroke-width="1.7" stroke-linejoin="round"/><path d="M17.5 3l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="#dfbc79"/></svg></span>
+        <h3>交互小样<small>PLAYABLE</small></h3></div>
+      <p>正文自带三枚可玩演示：<b>帽子⇄蟒蛇</b>印章切换（复用作品素材）、<b>整页笔迹切换</b>、<b>活体星空 canvas</b>（32ms 节流 · 离屏即停）。</p>
+    </div>
+    <div class="card" style="--c:var(--mint)">
+      <div class="chead"><span class="num">05</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="1.5" stroke="#8fd4b8" stroke-width="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.5" stroke="#dfbc79" stroke-width="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.5" stroke="#dfbc79" stroke-width="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.5" stroke="#8fb3e8" stroke-width="1.6"/></svg></span>
+        <h3>图标系统<small>ICONS</small></h3></div>
+      <p>手绘 SVG 全套 15 枚：品牌印、五章章节图、三枚机关图、返工/事故图；上线前过<b>三尺寸审计台</b>（120/40/16px 并排目检）。</p>
+    </div>
+    <div class="card" style="--c:var(--blue)">
+      <div class="chead"><span class="num">06</span>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3.5 11.5L20.5 4l-4 17-4.6-6.4z" stroke="#8fb3e8" stroke-width="1.7" stroke-linejoin="round"/><path d="M11.9 14.6L20.5 4" stroke="#dfbc79" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        <h3>发布<small>DEPLOY</small></h3></div>
+      <p>GitHub Pages 静态直发（main 根目录 + <code>.nojekyll</code>），无 CI、无打包产物；改一处 push 即全网更新，<b>打印/存 PDF 也有样式</b>。</p>
+    </div>
+  </div>
+
+  <div class="bar">
+    <b>亮点总结</b>
+    <span>零依赖零构建 · 单文件 51KB 承载全文 · 自托管文楷子集各约 197KB · 七张水彩插图约 1.0MB · 全文可自演示 · 手机与桌面双端验收 · 打印友好 · 所有细节来自 little-prince-journey 真实源码</span>
+  </div>
+  <div class="foot">
+    <span>造物手记 VOL.03 · 把一本名著做成可玩的网页</span>
+    <span><code>starrysea1412.github.io/playable-storybook</code></span>
+  </div>
+</body>
+</html>
